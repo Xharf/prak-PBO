@@ -8,6 +8,7 @@ import bangun.datar.*;
 import bangun.ruang.*;
 import math.obj.Bangun;
 import java.util.Scanner;
+import view.GUIBalok;
 /**
  *
  * @author shazi awaludin
@@ -18,6 +19,7 @@ public class PrakTugas3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        new GUIBalok();
         char input;
         Scanner in = new Scanner(System.in);
         
