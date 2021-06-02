@@ -3,18 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bangun.ruang;
+package hewan;
 
 /**
  *
  * @author shazi awaludin
  */
-public interface BangunRuang {
-
-    /**
-     * name for 
-     */
-    String NAME = "";
-    public double volume();
-    public double luasPermukaan();
+public interface Animal {
+    public String getName(); // nama hewan
+    public String getType(); // jenisnya
+    public void makeSound(); // suaranya
 }

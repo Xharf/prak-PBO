@@ -32,6 +32,7 @@ import bangun.datar.PersegiPanjang;
 public class Balok extends Bangun implements BangunRuang{
     private double t;
     private PersegiPanjang sisi;
+    String NAME = "udin";
     
     public Balok(double p, double l, double t){
         this.t = t;
@@ -56,11 +57,11 @@ public class Balok extends Bangun implements BangunRuang{
     
     @Override
     public void setName(){
-        this.name = "Balok"+Bangun.number;
+        super.name = "Balok"+Bangun.number;
     }
     
     public void setName(String name){
-        this.name = name;
+        super.name = name;
     }
     
     public void setAttrib(double p, double l, double t){
