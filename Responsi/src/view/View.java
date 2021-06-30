@@ -14,13 +14,11 @@ public class View extends JFrame {
     private JLabel Lalur = new JLabel("Alur");
     private JLabel Lpenokohan = new JLabel("Penokohan");
     private JLabel Lakting = new JLabel("Akting");
-    private JLabel Lnilai = new JLabel("Nilai");
 
     public JTextField Tjudul = new JTextField(20);
     public JTextField Talur = new JTextField(20);
     public JTextField Tpenokohan = new JTextField(20);
     public JTextField Takting = new JTextField(20);
-    public JTextField Tnilai = new JTextField(20);
 
     public JButton Btambah = new JButton("Tambah");
     public JButton Bupdate = new JButton("Update");
@@ -77,12 +75,6 @@ public class View extends JFrame {
         newPanel.add(Takting, constraints);
 
         constraints.gridx = 1;
-        constraints.gridy = 4;
-        newPanel.add(Lnilai, constraints);
-        constraints.gridx = 2;
-        newPanel.add(Tnilai, constraints);
-
-        constraints.gridx = 1;
         constraints.gridy = 5;
         newPanel.add(Btambah, constraints);
         constraints.gridy = 6;
@@ -105,7 +97,7 @@ public class View extends JFrame {
     public double getAlur() {
         String str = Talur.getText();
         if (str.equals("") || !this.isNumeric(str)) {
-            return 0;
+            return -1;
         }
 
         return Double.parseDouble(Talur.getText());
@@ -114,7 +106,7 @@ public class View extends JFrame {
     public double getPenokohan() {
         String str = Tpenokohan.getText();
         if (str.equals("") || !this.isNumeric(str)) {
-            return 0;
+            return -1;
         }
 
         return Double.parseDouble(Tpenokohan.getText());
@@ -123,20 +115,12 @@ public class View extends JFrame {
     public double getAkting() {
         String str = Takting.getText();
         if (str.equals("") || !this.isNumeric(str)) {
-            return 0;
+            return -1;
         }
 
         return Double.parseDouble(Takting.getText());
     }
 
-    public double getNilai() {
-        String str = Tnilai.getText();
-        if (str.equals("") || !this.isNumeric(str)) {
-            return 0;
-        }
-
-        return Double.parseDouble(Tnilai.getText());
-    }
 
     public static boolean isNumeric(String str) {
         return str != null && str.matches("[-+]?\\d*\\.?\\d+");

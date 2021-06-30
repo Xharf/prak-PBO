@@ -42,7 +42,6 @@ public class MovieController implements ActionListener{
                 view.Talur.setText(view.table.getValueAt(baris, 1).toString());
                 view.Tpenokohan.setText(view.table.getValueAt(baris, 2).toString());
                 view.Takting.setText(view.table.getValueAt(baris, 3).toString());
-                view.Tnilai.setText(view.table.getValueAt(baris, 4).toString());
             }
         });
     }
@@ -54,19 +53,9 @@ public class MovieController implements ActionListener{
             double alur = view.getAlur();
             double penokohan = view.getPenokohan();
             double akting = view.getAkting();
-            double nilai = view.getNilai();
             
-            if(judul.equals("")){
-                JOptionPane.showMessageDialog(null, "Judul Tidak Boleh Kosong");
-            } else if(alur==0){
-                JOptionPane.showMessageDialog(null, "Alur Tidak Boleh Nol atau Huruf");
-            } else if(penokohan == 0){
-                JOptionPane.showMessageDialog(null, "Penokohan Tidak Boleh Nol atau Huruf");
-            } else if(akting==0){
-                JOptionPane.showMessageDialog(null, "Akting Tidak Boleh Nol atau Huruf");
-            } else if(nilai==0){
-                JOptionPane.showMessageDialog(null, "Nilai Tidak Boleh Nol atau Huruf");
-            } else{
+            if(verifyInput(judul, alur, penokohan, akting)){
+                double nilai = (alur+penokohan+akting)/3;
                 movie.createMovie(judul, alur, penokohan, akting, nilai);
                 String newData[][] = movie.getMovie();
                 System.out.println(newData);
@@ -78,25 +67,15 @@ public class MovieController implements ActionListener{
             view.Talur.setText("");
             view.Tpenokohan.setText("");
             view.Takting.setText("");
-            view.Tnilai.setText("");
+
         } else if (e.getSource() == view.Bupdate){
             String judul = view.getJudul();
             double alur = view.getAlur();
             double penokohan = view.getPenokohan();
             double akting = view.getAkting();
-            double nilai = view.getNilai();
             
-            if(judul.equals("")){
-                JOptionPane.showMessageDialog(null, "Judul Tidak Boleh Kosong");
-            } else if(alur==0){
-                JOptionPane.showMessageDialog(null, "Alur Tidak Boleh Nol");
-            } else if(penokohan == 0){
-                JOptionPane.showMessageDialog(null, "Penokohan Tidak Boleh Nol");
-            } else if(akting==0){
-                JOptionPane.showMessageDialog(null, "Akting Tidak Boleh Nol");
-            } else if(nilai==0){
-                JOptionPane.showMessageDialog(null, "Nilai Tidak Boleh Nol");
-            } else{
+            if(verifyInput(judul, alur, penokohan, akting)){
+                double nilai = (alur+penokohan+akting)/3;
                 movie.updateMovie(judul, alur, penokohan, akting, nilai);
                 String newData[][] = movie.getMovie();
                 view.table.setModel(new JTable(newData, view.colName).getModel());
@@ -111,5 +90,20 @@ public class MovieController implements ActionListener{
                 view.table.setModel(new JTable(newData, view.colName).getModel());
             }
         }
+    }
+    
+    boolean verifyInput(String judul, double alur, double penokohan, double akting){
+        if(judul.equals("")){
+                JOptionPane.showMessageDialog(null, "Judul Tidak Boleh Kosong");
+            } else if(alur>5 || alur < 0){
+                JOptionPane.showMessageDialog(null, "Nilai Alur harus diantara 0-5");
+            } else if(penokohan>5 || penokohan < 0){
+                JOptionPane.showMessageDialog(null, "Nilai Penokohan harus diantara 0-5");
+            } else if(akting>5 || akting < 0){
+                JOptionPane.showMessageDialog(null, "Nilai Akting harus diantara 0-5");
+            } else{
+                return true;
+            }
+        return false;
     }
 }
