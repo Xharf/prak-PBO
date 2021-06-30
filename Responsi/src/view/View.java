@@ -9,7 +9,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JPanel;
 
 public class View extends JFrame {
-
     private JLabel Ljudul = new JLabel("Judul");
     private JLabel Lalur = new JLabel("Alur");
     private JLabel Lpenokohan = new JLabel("Penokohan");

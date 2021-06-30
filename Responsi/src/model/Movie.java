@@ -57,7 +57,7 @@ public class Movie extends Model{
             return null;
         }
     }
-    
+
     public String[] getMovieByJudul(String judul){
         String data[] = new String[5];
         try {
@@ -74,7 +74,7 @@ public class Movie extends Model{
             return null;
         }
     }
-    
+
     public void createMovie(String judul, double alur, double penokohan, double akting, double nilai){
         try{
             String query = "INSERT INTO movie VALUES ('"+judul

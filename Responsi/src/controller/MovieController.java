@@ -74,12 +74,18 @@ public class MovieController implements ActionListener{
             double penokohan = view.getPenokohan();
             double akting = view.getAkting();
             
+            
             if(verifyInput(judul, alur, penokohan, akting)){
-                double nilai = (alur+penokohan+akting)/3;
-                movie.updateMovie(judul, alur, penokohan, akting, nilai);
-                String newData[][] = movie.getMovie();
-                view.table.setModel(new JTable(newData, view.colName).getModel());
-            }
+                if(movie.getMovieByJudul(judul) != null){
+                    double nilai = (alur+penokohan+akting)/3;
+                    movie.updateMovie(judul, alur, penokohan, akting, nilai);
+                    String newData[][] = movie.getMovie();
+                    view.table.setModel(new JTable(newData, view.colName).getModel());
+                } else {
+                JOptionPane.showMessageDialog(null, "Data tidak ada");
+                }
+            } 
+            
         } else if(e.getSource() == view.Bdelete){
             String judul = view.getJudul();
             if(judul.equals("")){
