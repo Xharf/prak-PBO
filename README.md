@@ -3,7 +3,7 @@
 ini repo untuk segala bentuk file prak PBO
 
 NIM : 123190123
-
+kelas x
 NAMA: Shazi Awaludin
 
 * Tugas pertemuan 1: https://github.com/Xharf/prak-PBO/tree/716898bbc3c2275fe73dd3ff1c208e7c8284e766/Tugas1_java-dasar
